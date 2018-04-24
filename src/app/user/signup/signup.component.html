@@ -1,0 +1,111 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="/">My Chat</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+
+        <a class="nav-link" id="my-link" (click)="goToSignIn()">Sign-In</a>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+<div class="row p-0 m-0">
+
+  <div class="col-sm"></div>
+
+  <div class="col-sm p-5">
+
+    <h2 class="form-signin-heading">Sign Up To Start Chat</h2>
+
+    <br>
+    <form #signUp="ngForm" (ngSubmit)="signUpFunction()">
+      <span>FirstName: </span>
+
+      <label for="inputFirstName" class="sr-only">FirstName</label>
+
+      <input type="text" #first="ngModel" id="inputFirstName" name="firstName" class="form-control" [(ngModel)]="firstName" placeholder="FirstName"
+        required autofocus>
+
+      <br>
+      <div [hidden]="first.valid || first.pristine" class="alert alert-danger">
+        First Name is required!
+      </div>
+      <span>LastName: </span>
+
+      <label for="inputLastName" class="sr-only">LastName</label>
+
+      <input type="text" #last="ngModel" id="inputLastName" name="lastName" class="form-control" [(ngModel)]="lastName" placeholder="LastName"
+        required>
+
+      <br>
+      <div [hidden]="last.valid || last.pristine" class="alert alert-danger">
+        Last Name is required!
+      </div>
+      <span>Mobile: </span>
+
+      <label for="inputMobile" class="sr-only">Mobile</label>
+
+      <input type="number" #mobileNum="ngModel" id="inputMobile" class="form-control" name="mobile" [(ngModel)]="mobile" placeholder="Mobile"
+        required>
+
+      <br>
+      <div [hidden]="mobileNum.valid || mobileNum.pristine" class="alert alert-danger">
+        Mobile is required!
+      </div>
+      <span>Email: </span>
+
+      <label for="inputEmail" class="sr-only">Email address</label>
+
+      <input type="email" #emailId="ngModel" id="inputEmail" class="form-control" name="emailId" [(ngModel)]="email" placeholder="Email address"
+        required>
+
+      <br>
+      <div [hidden]="emailId.valid || emailId.pristine" class="alert alert-danger">
+        Email is required!
+      </div>
+      <span>Password: </span>
+
+      <label for="inputPassword" class="sr-only">Password</label>
+
+      <input type="password" #pass="ngModel" id="inputPassword" class="form-control" name="pass" [(ngModel)]="password" placeholder="Password"
+        required>
+
+      <br>
+      <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
+        Password is required!
+      </div>
+
+      <span>API Key: </span>
+
+      <label for="inputPassword" class="sr-only">AuthKey</label>
+
+      <textarea type="password" #api="ngModel" id="AuthKey" class="form-control" name="key" [(ngModel)]="apiKey" placeholder="API Key"
+        required></textarea>
+
+      <br>
+      <div [hidden]="api.valid || api.pristine" class="alert alert-danger">
+        Api Key is required!
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!signUp.form.valid">Sign Up</button>
+    </form>
+  </div>
+
+  <div class="col-sm"></div>
+
+</div>
